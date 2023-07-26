@@ -1,0 +1,90 @@
+            const string CommandExit = "exit";
+            const string CommandRubToUsd = "12";
+            const string CommandUsdToRub = "21";
+            const string CommandRubToEur = "13";
+            const string CommandEurToRub = "31";
+            const string CommandEurToUsd = "32";
+            const string CommandUsdToEur = "23";
+
+            double currencyCount;
+            double rubToUsd = 0.011;
+            double rubToEur = 0.010;
+            double usdToRub = 90.20;
+            double usdToEur = 0.90;
+            double eurToRub = 99.66;
+            double eurToUsd = 1.10;
+            double balanceRub;
+            double balanceUsd;
+            double balanceEur;
+            string userInput;
+
+            Console.WriteLine("Здравствуйте! Это конвертер валют. Введите Ваш баланс рублей.");
+            balanceRub = Convert.ToSingle(Console.ReadLine());
+            Console.WriteLine("Теперь введите Ваш баланс долларов.");
+            balanceUsd = Convert.ToSingle(Console.ReadLine());
+            Console.WriteLine("Теперь введите Ваш баланс евро.");
+            balanceEur = Convert.ToSingle(Console.ReadLine());
+            Console.WriteLine("Теперь выберете конвертацю.");
+            Console.WriteLine("1 руб | 2 доллар | 3 евро");
+            Console.WriteLine("Пример 12 - конвертация руб в доллары.");
+            userInput = Convert.ToString(Console.ReadLine());
+            
+            switch (userInput)
+            {
+                case CommandExit:
+                    break;
+                case CommandRubToUsd:
+                    Console.WriteLine("Вы выбрали конвертацию из рублей в доллары");
+                    Console.WriteLine("Введите кол-во рублей которое хотите конвертировать.");
+                    currencyCount = Convert.ToDouble(Console.ReadLine());
+                    balanceRub -= currencyCount;
+                    balanceUsd += currencyCount * rubToUsd;
+                    Console.WriteLine($"Теперь у вас {balanceUsd} долларов и {balanceRub} рублей.");
+                    break;
+                case CommandUsdToRub:
+                    Console.WriteLine("Вы выбрали конвертацию из долларов в рубли");
+                    Console.WriteLine("Введите кол-во долларов которое хотите конвертировать.");
+                    currencyCount = Convert.ToDouble(Console.ReadLine());
+                    balanceUsd -= currencyCount;
+                    balanceRub += currencyCount * usdToRub;
+                    Console.WriteLine($"Теперт у вас {balanceRub} рублей и {balanceUsd} долларов.");
+                    break;
+                case CommandRubToEur:
+                    Console.WriteLine("Вы выбрали конвертацию из рублей в евро");
+                    Console.WriteLine("Введите кол-во рублей которое хотите конвертировать.");
+                    currencyCount = Convert.ToDouble(Console.ReadLine());
+                    balanceRub -= currencyCount;
+                    balanceEur += currencyCount * rubToEur;
+                    Console.WriteLine($"Теперт у вас {balanceRub} рублей и {balanceEur} евро.");
+                    break;
+                case CommandEurToRub:
+                    Console.WriteLine("Вы выбрали конвертацию из евро в рубли");
+                    Console.WriteLine("Введите кол-во евро которое хотите конвертировать.");
+                    currencyCount = Convert.ToDouble(Console.ReadLine());
+                    balanceEur -= currencyCount;
+                    balanceRub += currencyCount * eurToRub;
+                    Console.WriteLine($"Теперь у Вас {balanceRub} рублей и {balanceEur} евро.");
+                    break;
+                case CommandEurToUsd:
+                    Console.WriteLine("Вы выбрали конвертацию из евро в доллары");
+                    Console.WriteLine("Введите кол-во евро которое хотите конвертировать.");
+                    currencyCount = Convert.ToDouble(Console.ReadLine());
+                    balanceEur -= currencyCount;
+                    balanceUsd += currencyCount * eurToUsd;
+                    Console.WriteLine($"Теперь у Вас {balanceUsd} долларов и {balanceEur} евро.");
+                    break;
+                case CommandUsdToEur:
+                    Console.WriteLine("Вы выбрали конвертацию из долларов в евро");
+                    Console.WriteLine("Введите кол-во долларов которое хотите конвертировать.");
+                    currencyCount = Convert.ToDouble(Console.ReadLine());
+                    balanceUsd -= currencyCount;
+                    balanceEur += currencyCount * usdToEur;
+                    Console.WriteLine($"Теперь у Вас {balanceEur} евро и {balanceUsd} долларов.");
+                    break;
+                default:
+                    Console.WriteLine("Не распознаю ввод :/");
+                    break;
+            }
+
+
+            Console.ReadKey();
